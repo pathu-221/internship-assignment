@@ -8,28 +8,28 @@ export default function CardsContainer() {
     return (
         <>
             <DragDropContext>
-                <Droppable droppableId='listitems'>
+                <Droppable droppableId='listitems' direction='horizontal'>
                     {
                         provided => (
-                        <div className={styles.cardContainer} 
+                        <ul className={styles.cardContainer} 
                         {...provided.droppableProps} ref={provided.innerRef}>
                             {cards.map((card, index) => (
-                                <Draggable key={card.id} type="TASK"  draggableId={ card.id } index={index}>
+                                <Draggable key={card.id} draggableId={ card.id.toString() } index={index}>
                                     { providede => (
-                                        <span 
+                                        <li 
                                         { ...providede.draggableProps} 
                                         { ...providede.dragHandleProps}
                                         ref={ providede.innerRef}>
                                             <Card {...card} />
-                                        </span>
+                                        </li>
                                     )
                                     }
                                 </Draggable>
                                
-                                
+                              
                             ))}
                              { provided.placeholder}
-                        </div>
+                        </ul>
                         )
                     }
                 </Droppable>
