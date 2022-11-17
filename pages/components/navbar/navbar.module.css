@@ -1,0 +1,31 @@
+
+.error {
+    color: white;
+    background-color: red;
+  }
+
+.navbarContainer {
+  display: flex;
+  max-height: 70px;
+  padding-top: 25px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tokenContainer {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  padding: 60px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  background-color: #00ffff61;
+  border: 2px solid #00ffff;
+  max-width: clamp(80%, 300px, 50%);
+  align-items: center;
+  transform: translate(-50%, 0);
+}
+
+.largeText {
+    font-size: 25px;
+}

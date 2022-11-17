@@ -1,0 +1,22 @@
+
+.error {
+    color: white;
+    background-color: red;
+  }
+
+.container {
+  min-width: clamp(80%, 300px, 18%);
+  margin-right: 20px;
+  height: 400px;
+  background-color: #add8e661;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  border-radius: 4%; 
+  border: 2px solid rgb(38, 146, 182);
+
+}
+
+.image {
+  max-width: 100%;
+}

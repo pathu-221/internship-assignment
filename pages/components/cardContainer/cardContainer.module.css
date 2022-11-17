@@ -1,0 +1,13 @@
+.error {
+    color: white;
+    background-color: red;
+  }
+
+
+.cardContainer {
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     padding-left: 40px;
+     padding-right: 40px;
+}
