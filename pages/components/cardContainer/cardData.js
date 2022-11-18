@@ -1,4 +1,4 @@
-export const cards = [
+export const cardsData = [
     {
         id: 0,
         imageUrl: 'https://cdn-icons-png.flaticon.com/512/3137/3137044.png',
