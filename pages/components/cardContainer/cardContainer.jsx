@@ -2,6 +2,8 @@ import Card from '../card/card.jsx';
 import { cardsData } from './cardData.js';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useState } from 'react';
+import Button from "react-bootstrap/Button";
+
 
 import styles from './cardContainer.module.css';
 
@@ -13,9 +15,9 @@ export default function CardsContainer() {
     const [selectedIndex, setselectedIndex] = useState(null);
 
     const [isDragging, setIsDragging] = useState(false);
+    const [hasSelection, doesHaveSelection] = useState(false);
 
     const eventControl = (event, info) => {
-
 
         if (event.type === 'mousemove' || event.type === 'touchmove') {
         setIsDragging(true)
@@ -42,14 +44,14 @@ export default function CardsContainer() {
     const handleClick = (index) => {
         //e.preventDefault();
 
-       if(!isDragging)
+       if(!isDragging && !hasSelection)
         setselectedIndex(index);
 
         console.log(cards)
     }
 
     return (
-        <div>
+        <div className={styles.cardParent}>
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <Droppable droppableId='listitems' direction='horizontal'>
                     {
@@ -82,6 +84,17 @@ export default function CardsContainer() {
                     }
                 </Droppable>
             </DragDropContext>
+
+            <Button 
+            className ={styles.button}
+            variant="primary" 
+            size='lg'
+            onClick = { () => doesHaveSelection(true)}
+            disabled ={ hasSelection }
+            style={{
+                width: '200px'
+            }}
+            >Select</Button>
         </div>
     )
 }

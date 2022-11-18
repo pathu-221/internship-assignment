@@ -4,6 +4,11 @@
   }
 
 
+.cardParent {
+  display: grid;
+  place-items: center;
+}
+
 .cardContainer {
      display: flex;
      align-items: center;
