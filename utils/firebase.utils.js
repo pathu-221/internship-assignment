@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp,  } from "firebase/app";
-import { getDatabase } from "firebase/database";
-import { getAuth ,signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { getDatabase} from "firebase/database";
+import 
+{ getAuth,
+  signInWithPopup, GoogleAuthProvider, signOut, signInAnonymously  } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,12 +23,23 @@ const provider = new GoogleAuthProvider();
 
 export const app = initializeApp(firebaseConfig);
 export const database = getDatabase(app);
-export const auth = getAuth(app)
+export const auth = getAuth(app);
+
+
+
 export const signinwithgoogle = () => {
   signInWithPopup(auth, provider)
 }
 
+export const signinanonymous = () => {
+  signInAnonymously(auth);
+}
 
 export const signout = () => {
+
+  
   signOut(auth);
+
 }
+
+//verify if the lobby is available or not 

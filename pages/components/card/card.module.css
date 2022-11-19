@@ -5,7 +5,8 @@
   }
 
 .container {
-  min-width: clamp(80%, 300px, 18%);
+  min-width: clamp(80%, 150px, 150px);
+  position: relative;
   margin-right: 20px;
   height: 400px;
   background-color: #add8e661;
@@ -19,7 +20,7 @@
 
 
 .container:hover {
-  scale: 1.1;
+  scale: 1.08;
   transition: .3s ease-in;
 }
 
@@ -30,4 +31,18 @@
 .selected {
   border: 2px solid black;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.greyDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #80808061;
+  animation: none;
+}
+
+.hidden {
+  display: none;
 }
