@@ -18,7 +18,9 @@ export default function Navbar () {
             }
         })
 
-    },[])
+        console.log(currentuser);
+
+    },[user])
 
 
 
@@ -39,7 +41,7 @@ export default function Navbar () {
                     size='lg'
                     onClick = {() => signout()}
                     >Sign Out</Button> :
-                    <h1>🙋‍♂️</h1>
+                    <h3>🙋‍♂️</h3>
                 }
             </h3>
         </div>

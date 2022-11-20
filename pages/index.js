@@ -3,9 +3,9 @@ import Button from "react-bootstrap/Button";
 import styles from '../styles/Home.module.css';
 import { signinwithgoogle, auth, signinanonymous } from "../utils/firebase.utils";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import CardsContainer from './components/cardContainer/cardContainer';
+import CardsContainer from '../components/cardContainer/cardContainer';
 
 
 
@@ -43,13 +43,20 @@ export default function Home() {
 
 function Login () {
   
+  const [loading, setLoading] = useState(false);
+
   return (
     <>
     <Button 
     className ={styles.button}
     variant="secondary"
-    onClick = { signinanonymous} 
-    size='lg'>Sign In anonymous</Button>
+    onClick = { () => {signinanonymous(); setLoading(true)}} 
+    disabled={loading}
+    size='lg'>
+      {
+        loading ? 'loading...' : 'Sign In anonymous'
+      }
+    </Button>
     <Button 
     className ={styles.button}
     variant="primary" 
