@@ -8,7 +8,7 @@
   display: grid;
   place-items: center;
 
-
+  padding: 20px;
 
 }
 
@@ -17,7 +17,7 @@
      align-items: center;
      overflow-x: scroll;
      justify-content: space-evenly;
-     padding: 40px;
+     padding: 20px;
      max-width: 100%;
 }
 
