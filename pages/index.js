@@ -4,27 +4,19 @@ import styles from '../styles/Home.module.css';
 import { signinwithgoogle, auth, signinanonymous } from "../utils/firebase.utils";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import CardsContainer from '../components/cardContainer/cardContainer';
 
 
 
+//default home page
+
 export default function Home() {
 
-  const router = useRouter();
   //useauthstate hook handle all the user authentication
   const [user, loading, error] = useAuthState(auth);
 
-
-
-  useEffect(() => {
-
-    return () => {
-    }
-  }, [])
-  
-
   return (
+    //after user signs in show the cards container component
     <div className={styles.app}>
       {
         loading ? <h1>loading...</h1> :

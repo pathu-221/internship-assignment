@@ -11,6 +11,9 @@ export default function Navbar () {
     const [currentuser, setUser] = useState(null);
     const [user, loading ] = useAuthState(auth);
     useEffect(() => {
+
+        //adds listener which listen to changes in the database
+
         if(user)
         onValue(ref(database, `users/`), snapshot => {
             if(snapshot.exists()) {

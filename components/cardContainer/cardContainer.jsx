@@ -1,3 +1,5 @@
+//To do refactor this file 
+
 import Card from '../card/card.jsx';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
@@ -13,7 +15,6 @@ import { cardsData } from './cardData.js';
 export default function CardsContainer() {
 
     const cardRef = ref(database, 'cards');
-    //user cannot choose a card if he already has a selection
 
     //hooks for firebase 
     const [cards, loading] = useListVals(cardRef);
@@ -28,6 +29,11 @@ export default function CardsContainer() {
 
     useEffect(() => {
 
+
+        /*on sign in do the following {
+            check if slots are available
+            if slots are available write a user document
+         }*/
 
        onAuthStateChanged(auth, user => {
         if(user){
@@ -53,6 +59,12 @@ export default function CardsContainer() {
             console.error(error);
             });
         }
+
+        /* 
+        on sign out do the following
+        increase vacancy by 1
+        if vacancy goes to 5 reset the cards collection
+        */
         else {
             const dbRef = ref(database);
             get(child(dbRef, `users/vacancy`)).then((snapshot) => {
@@ -78,7 +90,8 @@ export default function CardsContainer() {
     }, [])
 
     const verifyEverything = () => {
-        
+
+        //check if the user already has a choice
         const dbRef = ref(database);
         get(child(dbRef, `users/${user.uid}`)).then((snapshot) => {
         if (snapshot.exists()) {
@@ -97,6 +110,7 @@ export default function CardsContainer() {
 
     const eventControl = (event) => {
 
+        // do not confuse between dragging and clicking
         if (event.type === 'mousemove' || event.type === 'touchmove') {
         setIsDragging(true)
         }
@@ -111,13 +125,21 @@ export default function CardsContainer() {
 
 
     const handleClick = (index) => {
-        //e.preventDefault();
+
+        //on click change selection
        if(!isDragging && !hasSelection && !cards[index].selected) 
         setselectedIndex(index);
 
     }
 
     const lockSelection = () => {
+
+        /*
+        on choosing select do the following
+        user now has a selection
+        update card and user collection 
+        */
+
        if(!cards[selectedIndex].selected) {
         const tempCard = cards.at(selectedIndex);
         tempCard.selected = true;
