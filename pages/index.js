@@ -6,6 +6,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import CardsContainer from './components/cardContainer/cardContainer';
+
+
+
 export default function Home() {
 
   const router = useRouter();

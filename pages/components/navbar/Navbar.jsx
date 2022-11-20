@@ -10,7 +10,7 @@ export default function Navbar () {
 
     return (
         <div className={styles.navbarContainer}>
-            <h3>Time elapsed</h3>
+            <h3><span style={{ maxWidth: '33%' }}>Time elapsed</span></h3>
             <div className = { styles.tokenContainer}>
                 <p className={styles.largeText}>
                     { user ? (

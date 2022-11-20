@@ -12,7 +12,7 @@ import toast from 'react-hot-toast';
 import { cardsData } from './cardData.js';
 export default function CardsContainer() {
 
-    const cardRef = ref(database, 'cards');;
+    const cardRef = ref(database, 'cards');
     //user cannot choose a card if he already has a selection
 
     //hooks for firebase 
@@ -27,6 +27,8 @@ export default function CardsContainer() {
 
 
     useEffect(() => {
+
+
        onAuthStateChanged(auth, user => {
         if(user){
             
@@ -113,11 +115,9 @@ export default function CardsContainer() {
        if(!isDragging && !hasSelection && !cards[index].selected) 
         setselectedIndex(index);
 
-        console.log(user);
     }
 
     const lockSelection = () => {
-       console.log(user);
        if(!cards[selectedIndex].selected) {
         const tempCard = cards.at(selectedIndex);
         tempCard.selected = true;
@@ -139,10 +139,12 @@ export default function CardsContainer() {
             loading ? <h1>Loading ... </h1> : available ?
            (
             <>
+            
              <DragDropContext>
              <Droppable droppableId='listitems' direction='horizontal'>
                 {
                     provided => (
+                    
                     <ul className={styles.cardContainer} 
                     {...provided.droppableProps} ref={provided.innerRef}>
                         {cards.map((card, index) => (

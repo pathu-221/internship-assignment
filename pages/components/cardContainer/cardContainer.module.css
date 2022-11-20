@@ -7,14 +7,23 @@
 .cardParent {
   display: grid;
   place-items: center;
-  width: 100%;
+
+
 
 }
 
 .cardContainer {
      display: flex;
      align-items: center;
+     overflow-x: scroll;
      justify-content: space-evenly;
-     padding-left: 40px;
-     padding-right: 40px;
+     padding: 40px;
+     max-width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .cardContainer {
+    overflow: scroll;
+    justify-content: flex-start;
+  }
 }

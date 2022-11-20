@@ -5,8 +5,9 @@
   }
 
 .container {
-  min-width: clamp(80%, 150px, 150px);
+  min-width: calc(80vw / 5);
   position: relative;
+  margin: auto;
   margin-right: 20px;
   height: 400px;
   background-color: #add8e661;
@@ -26,6 +27,7 @@
 
 .image {
   max-width: 100%;
+  height: auto;
 }
 
 .selected {
@@ -45,4 +47,16 @@
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  
+  .container {
+    min-width: 80vw;
+  }
+
+  .container:first-child {
+    visibility: visible;
+  }
+
 }
